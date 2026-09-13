@@ -6,7 +6,7 @@
 
 **A high-accuracy, source-grounded Baileys knowledge base for AI coding agents.**
 
-Built from all **1,040 pages** of the official [baileys.wiki](https://baileys.wiki) documentation every guide, every function, every type, every protobuf message. Zero hallucinated APIs.
+Built from all **1,040 pages** of the official [baileys.wiki](https://baileys.wiki) documentation: every guide, every function, every type, every protobuf message. Zero hallucinated APIs.
 
 [![Stars](https://img.shields.io/github/stars/ryuhandev/baileys-skill?style=flat-square&color=2b3af6)](https://github.com/ryuhandev/baileys-skill/stargazers)
 [![Forks](https://img.shields.io/github/forks/ryuhandev/baileys-skill?style=flat-square&color=2b3af6)](https://github.com/ryuhandev/baileys-skill/network/members)
@@ -30,13 +30,13 @@ This repository fixes that. It is a **skill / knowledge pack** you drop next to 
 - write and modify Baileys bots using the **current v7.x API only**
 - debug connection, session, and delivery problems from real `DisconnectReason` semantics
 - understand the full event map, message structures, JIDs, media lifecycle, groups, newsletters, history sync, USync, and app state
-- refuse to invent APIs every symbol is verifiable against the mirrored official reference
+- refuse to invent APIs, since every symbol is verifiable against the mirrored official reference
 
 Everything is traceable: each knowledge file cites its source URLs, and the complete generated API reference is mirrored verbatim inside the repo.
 
 ## What's Inside
 
-<img src="assets/konata-usage.png" alt="Konata" width="190" align="right">
+<img src="assets/konata-usage.png" alt="Konata" width="180" align="right">
 
 | Layer | Contents |
 | --- | --- |
@@ -47,7 +47,9 @@ Everything is traceable: each knowledge file cites its source URLs, and the comp
 | `mistakes/` | 38 documented common mistakes, each grounded in an official doc page |
 | `references/` | Verbatim mirrors of every official guide page, the full URL inventory, and the source-of-truth policy |
 
-Every category has an `INDEX.md`, so an agent can enumerate the entire exported API surface if a symbol is not in the index, it does not exist in current Baileys.
+Every category has an `INDEX.md`, so an agent can enumerate the entire exported API surface. If a symbol is not in the index, it does not exist in current Baileys.
+
+<br clear="right">
 
 ## Repository Structure
 
@@ -133,7 +135,7 @@ git clone https://github.com/ryuhandev/baileys-skill.git ~/.claude/skills/bailey
 git clone https://github.com/ryuhandev/baileys-skill.git .claude/skills/baileys
 ```
 
-No further configuration needed the frontmatter `description` tells Claude when to
+No further configuration needed. The frontmatter `description` tells Claude when to
 load it. Verify with `/skills` inside a Claude Code session.
 
 ### OpenCode
@@ -188,7 +190,7 @@ Then add the same pointer snippet from the Codex section to your `GEMINI.md`
 ### Hermes and other CLI agents
 
 Any agent that can read files from the workspace can use this skill. Clone it into the
-project and add the pointer to whatever context mechanism the agent supports a
+project and add the pointer to whatever context mechanism the agent supports: a
 system prompt, a rules file, or `AGENTS.md`:
 
 ```bash
@@ -198,7 +200,7 @@ git clone https://github.com/ryuhandev/baileys-skill.git .agents/skills/baileys
 ```text
 Before writing any Baileys code, read .agents/skills/baileys/SKILL.md.
 Look up exact signatures in .agents/skills/baileys/api/<category>/<Name>.md.
-If a symbol is not present in the api/ indexes, it does not exist do not invent it.
+If a symbol is not present in the api/ indexes, it does not exist. Do not invent it.
 ```
 
 ### Cursor / Windsurf
@@ -212,7 +214,7 @@ Both support `AGENTS.md`; alternatively use their native rules:
 ### Any other agent (generic recipe)
 
 1. Clone this repo into your project (conventionally `.agents/skills/baileys/`).
-2. Tell the agent via its context file, rules, or system prompt to read
+2. Tell the agent, via its context file, rules, or system prompt, to read
    `SKILL.md` before Baileys work and to verify symbols against `api/`.
 3. That is all. The pack is plain Markdown; no runtime, no dependencies, no build step.
 
@@ -241,27 +243,27 @@ The completeness audit script confirmed every URL from the official
 [`llms.txt`](https://baileys.wiki/llms.txt) index maps to a file in this repository,
 with zero missing entries.
 
-<img src="assets/konata-sleepy.png" alt="Konata" width="150" align="left">
-
 ## Accuracy Policy
+
+<img src="assets/konata-sleepy.png" alt="Konata" width="150" align="right">
 
 **No guessing, ever.** Where the official reference lacks detail, files are explicitly
 marked `Not documented` or `Unverified from current Baileys documentation` instead of
 being filled with assumptions.
 
-Documentation conflicts are **recorded, not merged** see
+Documentation conflicts are **recorded, not merged**. See
 `references/sources.md` for the current list (four known discrepancies between guide
 examples and the generated reference).
-
-<br clear="left">
 
 Source-of-truth priority used throughout:
 
 1. Current official guides (baileys.wiki)
 2. Current generated API reference (TypeDoc from master)
 3. Official migration documentation (v7, v8)
-4. Baileys source on GitHub only to clarify undocumented behavior
+4. Baileys source on GitHub, only to clarify undocumented behavior
 5. Everything else (tutorials, Stack Overflow, old bot repos) is non-authoritative
+
+<br clear="right">
 
 ## Version Notes
 
@@ -277,25 +279,25 @@ Contributions are welcome, with one hard rule: **every claim must be traceable t
 official documentation or the Baileys source.**
 
 1. Fork the repository and create a feature branch.
-2. Add or fix content include the source URL for anything new.
+2. Add or fix content, including the source URL for anything new.
 3. If the official docs changed, re-mirror the affected pages under `api/` or
    `references/guides/` verbatim rather than paraphrasing.
 4. Open a pull request describing what changed and why.
 
 Found a hallucination or an outdated claim? Please
-[open an issue](https://github.com/ryuhandev/baileys-skill/issues) accuracy reports
+[open an issue](https://github.com/ryuhandev/baileys-skill/issues). Accuracy reports
 are the most valuable contribution of all.
 
 ## Disclaimer
 
 This project is an independent documentation pack. It is not affiliated with WhatsApp,
-Meta, or the WhiskeySockets team. Baileys itself is an unofficial library use it in
-accordance with WhatsApp's Terms of Service. Do not use it for spam or abuse.
+Meta, or the WhiskeySockets team. Baileys itself is an unofficial library. Use it in
+accordance with WhatsApp's Terms of Service, and do not use it for spam or abuse.
 
 ## Credits
 
-- [WhiskeySockets/Baileys](https://github.com/WhiskeySockets/Baileys) the library itself
-- [baileys.wiki](https://baileys.wiki) the official documentation this pack is built from
+- [WhiskeySockets/Baileys](https://github.com/WhiskeySockets/Baileys), the library itself
+- [baileys.wiki](https://baileys.wiki), the official documentation this pack is built from
 - Character art: Konata Izumi from *Lucky Star* (Kagami Yoshimizu / Kyoto Animation), used as mascot imagery
 
 ---
